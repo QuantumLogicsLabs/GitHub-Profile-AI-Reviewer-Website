@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import "./styles.css";
+import Dashboard from "./pages/Dashboard.jsx";
 
 const apiResponse = `{
   "username": "octocat",
@@ -35,6 +36,7 @@ function Shell({ children }) {
           <span>AI Reviewer Docs</span>
         </NavLink>
         <nav>
+          <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/" end>Overview</NavLink>
           <NavLink to="/how-it-works">How It Works</NavLink>
           <NavLink to="/api">API</NavLink>
@@ -241,6 +243,7 @@ function App() {
     <BrowserRouter>
       <Shell>
         <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Overview />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/api" element={<Api />} />
